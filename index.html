@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d18">
+
+    <title>Physics Playground | Interactive Physics Lab</title>
+
+    <!-- Connect the separate CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Connect the JavaScript after HTML has loaded -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <a href="#" class="brand" aria-label="Physics Playground home">
+            <div class="brand-logo">Φ</div>
+            <div>
+                <h1>Physics Playground</h1>
+                <p>Feel the physics. Explore the why.</p>
+            </div>
+        </a>
+
+        <span class="header-badge">INTERACTIVE SCIENCE LAB</span>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+        <p class="eyebrow">LEARN BY EXPERIMENTING</p>
+
+        <h2>
+            Physics is not just a formula.
+            <span>It's something you can explore.</span>
+        </h2>
+
+        <p class="hero-description">
+            Change variables, run simulations, observe the results,
+            and discover how the laws of nature work.
+        </p>
+    </section>
+
+    <main class="main-container">
+
+        <!-- ================= SIMULATION NAVIGATION ================= -->
+        <nav class="simulation-tabs" aria-label="Physics simulations">
+
+            <button class="tab active"
+                    data-simulation="projectile"
+                    aria-pressed="true">
+                ↗ Projectile Motion
+            </button>
+
+            <button class="tab"
+                    data-simulation="pendulum"
+                    aria-pressed="false">
+                ◉ Simple Pendulum
+            </button>
+
+            <button class="tab"
+                    data-simulation="electric"
+                    aria-pressed="false">
+                ⚡ Electric Field
+            </button>
+
+        </nav>
+
+        <!-- ================= MAIN SIMULATION LAYOUT ================= -->
+        <section class="simulation-layout">
+
+            <!-- LEFT: SIMULATION CANVAS -->
+            <article class="panel simulation-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3 id="simulationTitle">Projectile Motion</h3>
+                        <p id="simulationSubtitle">
+                            Explore the path of a moving projectile.
+                        </p>
+                    </div>
+
+                    <span id="simulationStatus" class="status">
+                        READY
+                    </span>
+                </div>
+
+                <div class="canvas-container">
+                    <canvas
+                        id="simulationCanvas"
+                        aria-label="Interactive physics simulation">
+                    </canvas>
+
+                    <p class="canvas-caption" id="canvasCaption">
+                        Ideal projectile motion. Air resistance is ignored.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- RIGHT: CONTROLS AND LIVE RESULTS -->
+            <aside class="panel controls-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Experiment controls</h3>
+                        <p>Change a variable and observe the result.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECTILE CONTROLS -->
+                <div id="projectileControls" class="control-group">
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="speed">Initial speed</label>
+                            <output id="speedOutput">25 m/s</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="speed"
+                            min="5"
+                            max="50"
+                            value="25"
+                            step="1">
+
+                        <div class="range-labels">
+                            <span>5 m/s</span>
+                            <span>50 m/s</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="angle">Launch angle</label>
+                            <output id="angleOutput">45°</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="angle"
+                            min="5"
+                            max="85"
+                            value="45"
+                            step="1">
+
+                        <div class="range-labels">
+                            <span>5°</span>
+                            <span>85°</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="gravity">Gravity</label>
+                            <output id="gravityOutput">9.8 m/s²</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="gravity"
+                            min="1"
+                            max="20"
+                            value="9.8"
+                            step="0.1">
+
+                        <div class="range-labels">
+                            <span>1 m/s²</span>
+                            <span>20 m/s²</span>
+                        </div>
+
+                        <p class="control-help">
+                            Earth's gravitational acceleration is approximately
+                            9.8 m/s² near the surface.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- PENDULUM CONTROLS -->
+                <div id="pendulumControls" class="control-group hidden">
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="length">String length</label>
+                            <output id="lengthOutput">1.0 m</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="length"
+                            min="0.3"
+                            max="2.5"
+                            value="1"
+                            step="0.1">
+
+                        <div class="range-labels">
+                            <span>0.3 m</span>
+                            <span>2.5 m</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="amplitude">Initial angle</label>
+                            <output id="amplitudeOutput">25°</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="amplitude"
+                            min="5"
+                            max="60"
+                            value="25"
+                            step="1">
+
+                        <div class="range-labels">
+                            <span>5°</span>
+                            <span>60°</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="pendulumGravity">Gravity</label>
+                            <output id="pendulumGravityOutput">9.8 m/s²</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="pendulumGravity"
+                            min="1"
+                            max="20"
+                            value="9.8"
+                            step="0.1">
+
+                        <div class="range-labels">
+                            <span>1 m/s²</span>
+                            <span>20 m/s²</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ELECTRIC FIELD CONTROLS -->
+                <div id="electricControls" class="control-group hidden">
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="charge">Charge magnitude</label>
+                            <output id="chargeOutput">1.0 μC</output>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="charge"
+                            min="0.2"
+                            max="2"
+                            value="1"
+                            step="0.1">
+
+                        <div class="range-labels">
+                            <span>0.2 μC</span>
+                            <span>2.0 μC</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="control-heading">
+                            <label for="chargeMode">Charge arrangement</label>
+                            <output id="chargeModeOutput">Dipole</output>
+                        </div>
+
+                        <select id="chargeMode">
+                            <option value="positive">Positive charge</option>
+                            <option value="dipole" selected>
+                                Positive and negative pair
+                            </option>
+                            <option value="negative">Negative charge</option>
+                        </select>
+                    </div>
+
+                    <p class="control-help">
+                        Field lines show the direction of the electric field.
+                        This visualization is schematic.
+                    </p>
+
+                </div>
+
+                <!-- SIMULATION BUTTONS -->
+                <div class="button-row">
+                    <button id="startButton" class="button primary">
+                        ▶ Start
+                    </button>
+
+                    <button id="pauseButton" class="button">
+                        Ⅱ Pause
+                    </button>
+
+                    <button id="resetButton" class="button">
+                        ↺ Reset
+                    </button>
+                </div>
+
+                <!-- PROJECTILE RESULTS -->
+                <div id="projectileResults" class="results-grid">
+
+                    <div class="metric">
+                        <span class="metric-label">Horizontal range</span>
+                        <strong id="rangeResult">63.8 m</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Maximum height</span>
+                        <strong id="heightResult">15.9 m</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Flight time</span>
+                        <strong id="timeResult">3.61 s</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Current height</span>
+                        <strong id="positionResult">0.0 m</strong>
+                    </div>
+
+                </div>
+
+                <!-- PENDULUM RESULTS -->
+                <div id="pendulumResults" class="results-grid hidden">
+
+                    <div class="metric">
+                        <span class="metric-label">Approx. period</span>
+                        <strong id="periodResult">2.01 s</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Frequency</span>
+                        <strong id="frequencyResult">0.50 Hz</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Angular position</span>
+                        <strong id="thetaResult">25.0°</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Elapsed time</span>
+                        <strong id="pendulumTimeResult">0.00 s</strong>
+                    </div>
+
+                </div>
+
+                <!-- ELECTRIC FIELD RESULTS -->
+                <div id="electricResults" class="results-grid hidden">
+
+                    <div class="metric">
+                        <span class="metric-label">Charge magnitude</span>
+                        <strong id="chargeResult">1.0 μC</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Field direction</span>
+                        <strong id="fieldDirectionResult">+ to −</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Arrangement</span>
+                        <strong id="arrangementResult">Dipole</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-label">Point-charge law</span>
+                        <strong>E ∝ |q|/r²</strong>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <!-- ================= LEARNING SECTION ================= -->
+        <section class="learning-grid">
+
+            <article class="panel learning-card">
+                <p class="eyebrow">UNDERSTAND THE SCIENCE</p>
+                <h3 id="theoryTitle">The physics behind the motion</h3>
+                <div id="theoryContent"></div>
+            </article>
+
+            <article class="panel learning-card">
+                <p class="eyebrow">BECOME AN EXPLORER</p>
+                <h3 id="challengeTitle">Try this experiment</h3>
+                <div id="challengeContent"></div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <p>Physics Playground — Learn by experimenting.</p>
+        <p>
+            Educational simulations use idealized models.
+            Real systems may include additional physical effects.
+        </p>
+    </footer>
+
+</body>
+</html>
