@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080d19">
+    <meta name="description" content="Explore interactive physics simulations for projectile motion, simple pendulums, electric fields, and more. Learn physics by experimenting.">
+
+    <title>Physics Lab | Interactive Physics Simulations</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+
+            <a href="#home" class="brand">
+                <span class="brand-icon" aria-hidden="true">Φ</span>
+                <span class="brand-text">
+                    <strong>Physics<span>Lab</span></strong>
+                    <small>EXPLORE THE UNIVERSE</small>
+                </span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#experiments">Experiments</a>
+                <a href="#learn">Learn Physics</a>
+                <a href="#about">About</a>
+            </div>
+
+            <a href="#experiments" class="nav-cta">
+                Enter Laboratory <span aria-hidden="true">↗</span>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main id="home">
+
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
+
+        <section class="hero-section">
+            <div class="hero-glow hero-glow-one"></div>
+            <div class="hero-glow hero-glow-two"></div>
+
+            <div class="container hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    INTERACTIVE SCIENCE LABORATORY
+                </div>
+
+                <h1>
+                    Don't Just Learn Physics.
+                    <span>Experience It.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Explore the laws of nature through interactive simulations.
+                    Change variables, run experiments, observe motion, and
+                    understand the science behind the universe.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#experiments" class="primary-button">
+                        Explore Simulations <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#learn" class="secondary-button">
+                        Discover Concepts
+                    </a>
+                </div>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="feature-symbol" aria-hidden="true">◉</span>
+                        <span>Interactive Experiments</span>
+                    </div>
+
+                    <div class="hero-feature">
+                        <span class="feature-symbol" aria-hidden="true">∑</span>
+                        <span>Physics-Based Models</span>
+                    </div>
+
+                    <div class="hero-feature">
+                        <span class="feature-symbol" aria-hidden="true">∞</span>
+                        <span>Learn by Exploring</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             EXPERIMENT SELECTOR
+        ========================== -->
+
+        <section id="experiments" class="experiments-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-line"></span>
+                        YOUR VIRTUAL LABORATORY
+                    </div>
+
+                    <h2>
+                        Choose Your <span>Experiment</span>
+                    </h2>
+
+                    <p>
+                        Select a physics experiment below to open its
+                        interactive simulation and start exploring.
+                    </p>
+                </div>
+
+
+                <!-- Experiment selection cards -->
+
+                <div class="experiment-grid"
+                     role="group"
+                     aria-label="Choose a physics experiment">
+
+                    <button
+                        type="button"
+                        class="experiment-card active"
+                        data-experiment="projectile"
+                        aria-pressed="true">
+
+                        <span class="experiment-card-top">
+                            <span class="experiment-icon projectile-icon"
+                                  aria-hidden="true">↗</span>
+
+                            <span class="experiment-number">01</span>
+                        </span>
+
+                        <span class="experiment-card-content">
+                            <strong>Projectile Motion</strong>
+
+                            <span class="experiment-description">
+                                Explore trajectories, range, height,
+                                and flight time.
+                            </span>
+                        </span>
+
+                        <span class="experiment-card-footer">
+                            <span class="experiment-category">
+                                MECHANICS
+                            </span>
+
+                            <span class="experiment-arrow"
+                                  aria-hidden="true">↗</span>
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="experiment-card"
+                        data-experiment="pendulum"
+                        aria-pressed="false">
+
+                        <span class="experiment-card-top">
+                            <span class="experiment-icon pendulum-icon"
+                                  aria-hidden="true">⏱</span>
+
+                            <span class="experiment-number">02</span>
+                        </span>
+
+                        <span class="experiment-card-content">
+                            <strong>Simple Pendulum</strong>
+
+                            <span class="experiment-description">
+                                Investigate oscillations, period,
+                                length, and gravity.
+                            </span>
+                        </span>
+
+                        <span class="experiment-card-footer">
+                            <span class="experiment-category">
+                                OSCILLATIONS
+                            </span>
+
+                            <span class="experiment-arrow"
+                                  aria-hidden="true">↗</span>
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="experiment-card"
+                        data-experiment="electric"
+                        aria-pressed="false">
+
+                        <span class="experiment-card-top">
+                            <span class="experiment-icon electric-icon"
+                                  aria-hidden="true">ϟ</span>
+
+                            <span class="experiment-number">03</span>
+                        </span>
+
+                        <span class="experiment-card-content">
+                            <strong>Electric Field</strong>
+
+                            <span class="experiment-description">
+                                Visualize electric charges, field
+                                direction, and field strength.
+                            </span>
+                        </span>
+
+                        <span class="experiment-card-footer">
+                            <span class="experiment-category">
+                                ELECTRICITY
+                            </span>
+
+                            <span class="experiment-arrow"
+                                  aria-hidden="true">↗</span>
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- =========================
+                     SIMULATION WORKSPACE
+                ========================== -->
+
+                <div class="simulation-workspace">
+
+                    <div class="simulation-header">
+
+                        <div class="simulation-title-group">
+                            <div class="simulation-live-indicator">
+                                <span class="status-dot"></span>
+                                VIRTUAL EXPERIMENT
+                            </div>
+
+                            <h3 id="simulation-title">
+                                Projectile Motion
+                            </h3>
+
+                            <p id="simulation-subtitle">
+                                Study the motion of an object launched
+                                into the air under gravity.
+                            </p>
+                        </div>
+
+                        <div class="simulation-status">
+                            <span class="status-light"></span>
+                            <span id="simulation-status-text"
+                                  aria-live="polite">Ready</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Canvas for all three experiments -->
+
+                    <div class="simulation-display"
+                         id="simulation-container">
+
+                        <div class="canvas-top-label">
+                            <span>LIVE SIMULATION</span>
+                            <span id="canvas-experiment-label">
+                                PROJECTILE MOTION
+                            </span>
+                        </div>
+
+                        <canvas
+                            id="physics-canvas"
+                            role="img"
+                            aria-label="Interactive physics simulation. Use the experiment controls to change the parameters.">
+
+                            Your browser does not support HTML canvas.
+                            Please use a modern browser to view the simulation.
+
+                        </canvas>
+
+                        <div id="simulation-message"
+                             class="simulation-message"
+                             role="status"
+                             aria-live="polite"
+                             hidden>
+                        </div>
+
+                        <div class="canvas-bottom-label">
+                            <span id="canvas-axis-label">
+                                Horizontal position (m)
+                            </span>
+
+                            <span id="canvas-time-label">
+                                Time: 0.00 s
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         SIMULATION CONTROLS
+                    ========================== -->
+
+                    <div class="simulation-controls">
+
+                        <div class="controls-heading">
+                            <div>
+                                <span class="section-eyebrow">
+                                    EXPERIMENT PARAMETERS
+                                </span>
+
+                                <h4>Adjust Your Variables</h4>
+                            </div>
+
+                            <span class="controls-hint">
+                                Change a value to explore its effect
+                            </span>
+                        </div>
+
+
+                        <!-- PROJECTILE CONTROLS -->
+
+                        <div class="control-panel"
+                             id="projectile-controls"
+                             data-controls="projectile">
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="projectile-speed">
+                                        Initial Speed
+                                    </label>
+
+                                    <output id="projectile-speed-value"
+                                            for="projectile-speed">20 m/s</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="projectile-speed"
+                                    min="5"
+                                    max="40"
+                                    step="1"
+                                    value="20">
+
+                                <div class="range-labels">
+                                    <span>5 m/s</span>
+                                    <span>40 m/s</span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="projectile-angle">
+                                        Launch Angle
+                                    </label>
+
+                                    <output id="projectile-angle-value"
+                                            for="projectile-angle">45°</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="projectile-angle"
+                                    min="0"
+                                    max="90"
+                                    step="1"
+                                    value="45">
+
+                                <div class="range-labels">
+                                    <span>0°</span>
+                                    <span>90°</span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="projectile-gravity">
+                                        Gravitational Acceleration
+                                    </label>
+
+                                    <output id="projectile-gravity-value"
+                                            for="projectile-gravity">9.8 m/s²</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="projectile-gravity"
+                                    min="1"
+                                    max="20"
+                                    step="0.1"
+                                    value="9.8">
+
+                                <div class="range-labels">
+                                    <span>1 m/s²</span>
+                                    <span>20 m/s²</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PENDULUM CONTROLS -->
+
+                        <div class="control-panel"
+                             id="pendulum-controls"
+                             data-controls="pendulum"
+                             hidden>
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="pendulum-length">
+                                        Pendulum Length
+                                    </label>
+
+                                    <output id="pendulum-length-value"
+                                            for="pendulum-length">1.0 m</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="pendulum-length"
+                                    min="0.2"
+                                    max="3"
+                                    step="0.1"
+                                    value="1">
+
+                                <div class="range-labels">
+                                    <span>0.2 m</span>
+                                    <span>3.0 m</span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="pendulum-gravity">
+                                        Gravitational Acceleration
+                                    </label>
+
+                                    <output id="pendulum-gravity-value"
+                                            for="pendulum-gravity">9.8 m/s²</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="pendulum-gravity"
+                                    min="1"
+                                    max="20"
+                                    step="0.1"
+                                    value="9.8">
+
+                                <div class="range-labels">
+                                    <span>1 m/s²</span>
+                                    <span>20 m/s²</span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="pendulum-angle">
+                                        Initial Displacement
+                                    </label>
+
+                                    <output id="pendulum-angle-value"
+                                            for="pendulum-angle">30°</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="pendulum-angle"
+                                    min="5"
+                                    max="80"
+                                    step="1"
+                                    value="30">
+
+                                <div class="range-labels">
+                                    <span>5°</span>
+                                    <span>80°</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ELECTRIC FIELD CONTROLS -->
+
+                        <div class="control-panel"
+                             id="electric-controls"
+                             data-controls="electric"
+                             hidden>
+
+                            <div class="control-field">
+                                <div class="control-label-row">
+                                    <label for="electric-charge">
+                                        Source Charge
+                                    </label>
+
+                                    <output id="electric-charge-value"
+                                            for="electric-charge">+5 μC</output>
+                                </div>
+
+                                <input
+                                    type="range"
+                                    id="electric-charge"
+                                    min="-10"
+                                    max="10"
+                                    step="1"
+                                    value="5">
+
+                                <div class="range-labels">
+                                    <span>-10 μC</span>
+                                    <span>+10 μC</span>
+                  
